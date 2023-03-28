@@ -16,7 +16,7 @@
     No se encontró nada con el término <i>{{termino}}</i>.
 </div>
 
-<div *ngIf="!hayError" class="row">
+<div *ngIf="paises.length > 0" class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
@@ -31,13 +31,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>flag</td>
-                    <td>nombre país</td>
-                    <td>número de población</td>
+                <tr *ngFor="let pais of paises; let i = index">
+                    <td>{{i+1}}</td>
                     <td>
-                        <a href="/pais/cri">Ver...</a>
+                        <img [src]="pais.flags.png" class="small-flag" alt="">
+                    </td>
+                    <td>{{pais.name.common}}</td>
+                    <td>{{pais.population | number}}</td>
+                    <td>
+                        <a [routerLink]="['/pais', pais.cca2]">Ver...</a>
                     </td>
                 </tr>
             </tbody>
