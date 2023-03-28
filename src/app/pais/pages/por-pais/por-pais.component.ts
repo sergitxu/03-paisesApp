@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Pais } from '../../interfaces/pais.interface';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class PorPaisComponent {
 
   termino: string = '';
   hayError: boolean = false;
-  paises: Pais[] = [];
+  paises: Country[] = [];
 
   constructor(private paisService: PaisService) { console.log(this.paises); }
 
