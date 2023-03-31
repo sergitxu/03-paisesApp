@@ -18,6 +18,7 @@ export class VerPaisComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //switchMap recoge un observable y envía otro.
     this.activatedRoute.params
       .pipe(
         switchMap(({ id }) => this.PaisService.getPaisporId(id))
@@ -25,17 +26,6 @@ export class VerPaisComponent implements OnInit {
       .subscribe(resp => {
         console.log(resp);
       });
-
-    // this.activatedRoute.params
-    //   .subscribe(({ id }) => {
-    //     console.log(id);
-
-    //     this.PaisService.getPaisporId(id)
-    //       .subscribe(pais => {
-    //         console.log(pais);
-    //       })
-
-    //   })
   }
 
 }
